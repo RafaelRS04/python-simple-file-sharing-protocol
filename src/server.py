@@ -57,7 +57,9 @@ if __name__ == '__main__':
         try:
             client, _ = sock.accept()
             receiver.receive_file(client)
+            client.close()
         except TimeoutError:
             pass
 
-    print('Server exited...')
+    sock.close()
+    print('\nServer exited...')

@@ -7,7 +7,7 @@ import sys
 
 if __name__ == '__main__':
     if len(sys.argv) != 4:
-        print('usage: server_ipv4 server_port filename')
+        raise SystemExit('usage: server_ipv4 server_port filename')
 
     conf = config.get_client_conf()
 
@@ -24,3 +24,5 @@ if __name__ == '__main__':
         print('Successful upload')
     elif status_code == protocol.STATUS_ERROR:
         print('Error on upload')
+        
+    sock.close()
